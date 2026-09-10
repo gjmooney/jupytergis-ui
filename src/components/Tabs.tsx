@@ -1,17 +1,17 @@
-import { Tabs as TabsPrimitive } from '@base-ui/react/tabs';
-import { cva, type VariantProps } from 'class-variance-authority';
-import * as React from 'react';
-import { useCallback, useRef } from 'react';
+import { Tabs as TabsPrimitive } from "@base-ui/react/tabs";
+import { cva, type VariantProps } from "class-variance-authority";
+import * as React from "react";
+import { useCallback, useRef } from "react";
 
 import {
   cn,
   stripJupyterButtonStyling,
   useStripJupyterLabStyling,
-} from './utils';
+} from "./utils";
 
 function Tabs({
   className,
-  orientation = 'horizontal',
+  orientation = "horizontal",
   ...props
 }: TabsPrimitive.Root.Props) {
   return (
@@ -19,7 +19,7 @@ function Tabs({
       data-slot="tabs"
       data-orientation={orientation}
       className={cn(
-        'group/tabs flex gap-2 data-horizontal:flex-col',
+        "group/tabs flex gap-2 data-horizontal:flex-col",
         className,
       )}
       {...props}
@@ -28,18 +28,18 @@ function Tabs({
 }
 
 const tabsListVariants = cva(
-  'group/tabs-list inline-flex w-fit items-center justify-center rounded-lg p-[3px] text-muted-foreground group-data-horizontal/tabs:h-9 group-data-vertical/tabs:h-fit group-data-vertical/tabs:flex-col data-[variant=line]:rounded-none data-[variant=underline]:rounded-none',
+  "group/tabs-list inline-flex w-fit items-center justify-center rounded-lg p-[3px] text-muted-foreground group-data-horizontal/tabs:h-9 group-data-vertical/tabs:h-fit group-data-vertical/tabs:flex-col data-[variant=line]:rounded-none data-[variant=underline]:rounded-none",
   {
     variants: {
       variant: {
-        default: 'bg-muted',
-        line: 'gap-1 bg-transparent',
+        default: "bg-muted",
+        line: "gap-1 bg-transparent",
         // Chrome for consumer underline indicators (no shadcn after: bar)
-        underline: 'h-auto gap-1 bg-secondary p-0',
+        underline: "gap-1 bg-secondary p-0",
       },
     },
     defaultVariants: {
-      variant: 'default',
+      variant: "default",
     },
   },
 );
@@ -47,7 +47,7 @@ const tabsListVariants = cva(
 const TabsList = React.forwardRef<
   HTMLDivElement,
   TabsPrimitive.List.Props & VariantProps<typeof tabsListVariants>
->(({ className, variant = 'default', ...props }, ref) => {
+>(({ className, variant = "default", ...props }, ref) => {
   return (
     <TabsPrimitive.List
       ref={ref}
@@ -70,7 +70,7 @@ const TabsTrigger = React.forwardRef<
   const mergedRef = useCallback(
     (node: HTMLButtonElement | null) => {
       triggerRef.current = node;
-      if (typeof ref === 'function') {
+      if (typeof ref === "function") {
         ref(node);
       } else if (ref) {
         ref.current = node;
@@ -84,10 +84,10 @@ const TabsTrigger = React.forwardRef<
       ref={mergedRef}
       data-slot="tabs-trigger"
       className={cn(
-        "relative inline-flex h-[calc(100%-1px)] flex-1 items-center justify-center gap-1.5 rounded-md border border-transparent px-2 py-1 text-base font-medium whitespace-nowrap text-foreground/60 transition-all group-data-[variant=underline]/tabs-list:h-auto group-data-[variant=underline]/tabs-list:shadow-none group-data-vertical/tabs:w-full group-data-vertical/tabs:justify-start hover:text-foreground focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 focus-visible:outline-1 focus-visible:outline-ring disabled:pointer-events-none disabled:opacity-50 has-data-[icon=inline-end]:pr-1.5 has-data-[icon=inline-start]:pl-1.5 aria-disabled:pointer-events-none aria-disabled:opacity-50 group-data-[variant=default]/tabs-list:data-active:shadow-sm group-data-[variant=line]/tabs-list:data-active:shadow-none group-data-[variant=underline]/tabs-list:data-active:shadow-none [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
-        'group-data-[variant=line]/tabs-list:bg-transparent group-data-[variant=line]/tabs-list:data-active:bg-transparent',
-        'group-data-[variant=default]/tabs-list:data-active:bg-background group-data-[variant=default]/tabs-list:data-active:text-foreground group-data-[variant=line]/tabs-list:data-active:text-foreground group-data-[variant=underline]/tabs-list:data-active:text-foreground',
-        'after:absolute after:bg-foreground after:opacity-0 after:transition-opacity group-data-horizontal/tabs:after:inset-x-0 group-data-horizontal/tabs:after:bottom-[-5px] group-data-horizontal/tabs:after:h-0.5 group-data-vertical/tabs:after:inset-y-0 group-data-vertical/tabs:after:-right-1 group-data-vertical/tabs:after:w-0.5 group-data-[variant=line]/tabs-list:data-active:after:opacity-100',
+        "relative inline-flex h-[calc(100%-1px)] flex-1 items-center justify-center gap-1.5 rounded-md border border-transparent px-2 py-1 text-base font-medium whitespace-nowrap text-foreground/60 transition-all group-data-[variant=underline]/tabs-list:shadow-none group-data-vertical/tabs:w-full group-data-vertical/tabs:justify-start hover:text-foreground focus-visible:border-ring focus-visible:ring-[3px] focus-visible:ring-ring/50 focus-visible:outline-1 focus-visible:outline-ring disabled:pointer-events-none disabled:opacity-50 has-data-[icon=inline-end]:pr-1.5 has-data-[icon=inline-start]:pl-1.5 aria-disabled:pointer-events-none aria-disabled:opacity-50 group-data-[variant=default]/tabs-list:data-active:shadow-sm group-data-[variant=line]/tabs-list:data-active:shadow-none group-data-[variant=underline]/tabs-list:data-active:shadow-none [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg:not([class*='size-'])]:size-4",
+        "group-data-[variant=line]/tabs-list:bg-transparent group-data-[variant=line]/tabs-list:data-active:bg-transparent",
+        "group-data-[variant=default]/tabs-list:data-active:bg-background group-data-[variant=default]/tabs-list:data-active:text-foreground group-data-[variant=line]/tabs-list:data-active:text-foreground group-data-[variant=underline]/tabs-list:data-active:text-foreground",
+        "after:absolute after:bg-foreground after:opacity-0 after:transition-opacity group-data-horizontal/tabs:after:inset-x-0 group-data-horizontal/tabs:after:bottom-[-5px] group-data-horizontal/tabs:after:h-0.5 group-data-vertical/tabs:after:inset-y-0 group-data-vertical/tabs:after:-right-1 group-data-vertical/tabs:after:w-0.5 group-data-[variant=line]/tabs-list:data-active:after:opacity-100",
         className,
       )}
       {...props}
@@ -99,7 +99,7 @@ function TabsContent({ className, ...props }: TabsPrimitive.Panel.Props) {
   return (
     <TabsPrimitive.Panel
       data-slot="tabs-content"
-      className={cn('flex-1 pt-2 text-sm outline-none', className)}
+      className={cn("flex-1 pt-2 text-sm outline-none", className)}
       {...props}
     />
   );

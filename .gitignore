@@ -1,0 +1,6 @@
+lib/
+node_modules/
+style/tailwind.css
+*.tsbuildinfo
+.DS_Store
+*.log

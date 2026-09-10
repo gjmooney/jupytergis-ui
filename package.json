@@ -1,5 +1,5 @@
 {
-  "name": "@jupytergis/ui",
+  "name": "jupytergis-ui",
   "version": "0.16.2",
   "description": "JupyterLab-themed shadcn/Base UI components for Jupyter extensions.",
   "keywords": [

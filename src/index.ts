@@ -1,5 +1,5 @@
 /**
- * @jupytergis/ui — JupyterLab-themed shadcn/Base UI kit.
+ * jupytergis-ui — JupyterLab-themed shadcn/Base UI kit.
  */
 
 export { Badge, badgeVariants } from './components/Badge';

@@ -1,11 +1,11 @@
-# @jupytergis/ui
+# jupytergis-ui
 
 JupyterLab-themed shadcn / Base UI components for Jupyter extensions.
 
 ## Install
 
 ```bash
-pnpm add @jupytergis/ui
+pnpm add jupytergis-ui
 ```
 
 **Peers:** `react`, `react-dom` (`^18` or `^19`).
@@ -20,11 +20,11 @@ Import **once** in your extension stylesheet. JupyterLab theme tokens (`--jp-*`)
 must already be on the page:
 
 ```css
-@import '~@jupytergis/ui/style/index.css';
+@import '~jupytergis-ui/style/index.css';
 ```
 
 ```ts
-import '@jupytergis/ui/style';
+import 'jupytergis-ui/style';
 ```
 
 If your app adds its own Tailwind utility classes, run a separate Tailwind build
@@ -33,7 +33,7 @@ for those sources. This package’s CSS only covers kit components.
 ## Usage
 
 ```tsx
-import { Button, Input, NativeSelect, Dialog } from '@jupytergis/ui';
+import { Button, Input, NativeSelect, Dialog } from 'jupytergis-ui';
 ```
 
 ## Develop
